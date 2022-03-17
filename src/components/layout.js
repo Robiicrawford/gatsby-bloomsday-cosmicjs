@@ -131,7 +131,7 @@ export default ({ children, location }) => (
             powered by&nbsp;
             <a
               target="_blank"
-              href="https://gatsbyjs.org"
+              href="https://sportstats.ca"
               style={{
                 color: '#191919',
                 boxShadow: 'none',
@@ -145,27 +145,10 @@ export default ({ children, location }) => (
                   margin: '0 4px -3px 2px',
                 }}
               />
-              <strong>Gatsby</strong>
+              <strong>Sportstats</strong>
             </a>
             &nbsp;and&nbsp;
-            <a
-              target="_blank"
-              href="https://cosmicjs.com"
-              style={{
-                color: '#191919',
-                boxShadow: 'none',
-              }}
-            >
-              <img
-                src={cosmicjsLogo}
-                alt="Cosmic JS"
-                style={{
-                  width: '18px',
-                  margin: '0 4px -2px 5px',
-                }}
-              />
-              <strong>Cosmic JS</strong>
-            </a>
+
           </footer>
         </div>
       )
