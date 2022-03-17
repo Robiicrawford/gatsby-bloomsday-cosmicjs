@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 
 import cosmicjsLogo from '../../static/cosmicjs.svg'
-import gatsbyLogo from '../../static/gatsby.png'
+import sportstats from '../../static/sportstats.png'
 import { rhythm, scale } from '../utils/typography'
 
 // Import typefaces
@@ -138,7 +138,7 @@ export default ({ children, location }) => (
               }}
             >
               <img
-                src={gatsbyLogo}
+                src={sportstats}
                 alt="Gatsby JS"
                 style={{
                   width: '20px',
@@ -147,7 +147,6 @@ export default ({ children, location }) => (
               />
               <strong>Sportstats</strong>
             </a>
-            &nbsp;and&nbsp;
 
           </footer>
         </div>
