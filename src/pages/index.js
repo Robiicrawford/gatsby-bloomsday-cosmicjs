@@ -14,34 +14,37 @@ class BlogIndex extends React.Component {
       this,
       'props.data.cosmicjsSettings.metadata.site_title'
     )
-    const posts = get(this, 'props.data.allCosmicjsPosts.edges')
-    const author = get(this, 'props.data.cosmicjsSettings.metadata')
+    const results = get(this, 'props.data.allCosmicjsResults.edges')
     const location = get(this, 'props.location')
 
     return (
       <Layout location={location}>
         <Helmet title={siteTitle} />
-        <Bio settings={author} />
-        {posts.map(({ node }) => {
-          const title = get(node, 'title') || node.slug
-          return (
-            <div key={node.slug}>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: 'none' }} to={`posts/${node.slug}`}>
-                  {title}
+        <div style={{display:'inline'}}>
+          {results.map(({ node }) => {
+            const title = get(node, 'title') || node.slug
+            return (
+              <div key={node.slug} style={{width:'30%', display:'inline-block',}}>
+                <Link style={{ boxShadow: 'none' }} to={`results/${node.slug}`}>
+                  <div style={{ margin:'0.3rem', padding:'1rem', border:'1px solid black', borderRadius:'5px', cursor:'pointer'}}>
+                    <h3
+                      style={{
+                        marginBottom: rhythm(1 / 4),
+                      }}
+                    >
+                      {title} 
+                    </h3>
+                    <small style={{color:'black'}}>{node.created}</small>
+                    <p 
+                      style={{color:'black'}}
+                      dangerouslySetInnerHTML={{ __html: node.metadata.description }}
+                    />
+                  </div>
                 </Link>
-              </h3>
-              <small>{node.created}</small>
-              <p
-                dangerouslySetInnerHTML={{ __html: node.metadata.description }}
-              />
-            </div>
-          )
-        })}
+              </div>
+            )
+          })}
+        </div>
       </Layout>
     )
   }
@@ -51,7 +54,7 @@ export default BlogIndex
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allCosmicjsPosts(sort: { fields: [created], order: DESC }, limit: 1000) {
+    allCosmicjsResults(sort: { fields: [created], order: DESC }, limit: 1000) {
       edges {
         node {
           metadata {
@@ -60,16 +63,6 @@ export const pageQuery = graphql`
           slug
           title
           created(formatString: "DD MMMM, YYYY")
-        }
-      }
-    }
-    cosmicjsSettings(slug: { eq: "general" }) {
-      metadata {
-        site_title
-        author_name
-        author_bio
-        author_avatar {
-          imgix_url
         }
       }
     }

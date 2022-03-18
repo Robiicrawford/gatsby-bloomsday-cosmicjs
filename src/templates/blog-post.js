@@ -11,7 +11,7 @@ import { rhythm, scale } from '../utils/typography'
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.cosmicjsPosts
+    const post = this.props.data.cosmicjsResults
     const siteTitle = get(
       this.props,
       'data.cosmicjsSettings.metadata.site_title'
@@ -112,7 +112,7 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
-    cosmicjsPosts(slug: { eq: $slug }) {
+    cosmicjsResults(slug: { eq: $slug }) {
       id
       content
       title

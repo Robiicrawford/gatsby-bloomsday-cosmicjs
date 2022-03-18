@@ -114,7 +114,7 @@ export default ({ children, location }) => (
             style={{
               marginLeft: 'auto',
               marginRight: 'auto',
-              maxWidth: rhythm(24),
+              maxWidth: rhythm(45),
               padding: `0 ${rhythm(3 / 4)} ${rhythm(1.5)} ${rhythm(3 / 4)}`,
               minHeight: 'calc(100vh - 42px)',
             }}
