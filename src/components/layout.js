@@ -3,8 +3,7 @@ import { Link } from 'gatsby'
 import { StaticQuery, graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 
-import cosmicjsLogo from '../../static/cosmicjs.svg'
-import sportstats from '../../static/sportstats.png'
+import sportstats from '../../static/sportstats.jpeg'
 import { rhythm, scale } from '../utils/typography'
 
 // Import typefaces
