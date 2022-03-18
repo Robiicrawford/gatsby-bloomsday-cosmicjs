@@ -66,17 +66,9 @@ class BlogPostTemplate extends React.Component {
         >
           {post.created}
         </p>
-        <BackgroundImage
-          Tag="div"
-          className="post-hero"
-          fluid={post.metadata.hero.local.childImageSharp.fluid}
-          backgroundColor={`#007ACC`}
-          style={{
-            marginBottom: rhythm(0.6),
-          }}
-        />
+
         <div
-          className="post-content"
+          className="post-content post-hero"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
         <hr
