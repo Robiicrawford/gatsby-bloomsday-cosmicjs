@@ -37,10 +37,10 @@ export default ({ children, location }) => (
       let header
 
       let rootPath = `/`
-      let postsPath = `/posts`
+      let postsPath = `/results`
       if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
         rootPath = __PATH_PREFIX__ + `/`
-        postsPath = __PATH_PREFIX__ + `/posts`
+        postsPath = __PATH_PREFIX__ + `/results`
       }
 
       if (location.pathname === rootPath || location.pathname === postsPath) {
