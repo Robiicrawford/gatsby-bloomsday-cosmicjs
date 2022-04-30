@@ -19,14 +19,18 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout location={location}>
-        <Helmet title={siteTitle} />
+        <Helmet 
+          title={siteTitle} 
+        >
+           <link rel="stylesheet" href="https://use.typekit.net/ifr6dqk.css" />
+        </Helmet>
         <div style={{display:'inline'}}>
           {results.map(({ node }) => {
             const title = get(node, 'title') || node.slug
             return (
               <div key={node.slug} style={{width:'30%', display:'inline-block',}}>
                 <Link style={{ boxShadow: 'none' }} to={`results/${node.slug}`}>
-                  <div style={{ margin:'0.3rem', padding:'1rem', border:'1px solid black', borderRadius:'5px', cursor:'pointer'}}>
+                  <div style={{ margin:'0.3rem', padding:'1rem', border:'3px solid green', borderRadius:'5px', cursor:'pointer', backgroundColor:'white'}}>
                     <h3
                       style={{
                         marginBottom: rhythm(1 / 4),

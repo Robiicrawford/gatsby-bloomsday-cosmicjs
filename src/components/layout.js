@@ -3,12 +3,17 @@ import { Link } from 'gatsby'
 import { StaticQuery, graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 
+import { getImage, StaticImage, GatsbyImage } from "gatsby-plugin-image"
+
 import sportstats from '../../static/icon_square.jpeg'
 import { rhythm, scale } from '../utils/typography'
 
 // Import typefaces
 import 'typeface-montserrat'
 import 'typeface-merriweather'
+
+import "./layout.css"
+
 
 export default ({ children, location }) => (
   <StaticQuery
@@ -26,15 +31,27 @@ export default ({ children, location }) => (
                 }
               }
             }
+            partner_image {
+              local {
+                childImageSharp {
+                  gatsbyImageData(
+                    placeholder: BLURRED
+                    formats: [AUTO, WEBP, AVIF]
+                    width: 500
+                  )
+                }
+              }
+            }
           }
         }
       }
     `}
     render={data => {
       const siteTitle = data.cosmicjsSettings.metadata.site_heading
-      const homgePageHero =
-        data.cosmicjsSettings.metadata.homepage_hero.local.childImageSharp.fluid
+      const homgePageHero = data.cosmicjsSettings.metadata.homepage_hero.local.childImageSharp.fluid
       let header
+
+      const image = getImage(data.cosmicjsSettings.metadata.partner_image.local)
 
       let rootPath = `/`
       let postsPath = `/results`
@@ -51,9 +68,11 @@ export default ({ children, location }) => (
             fluid={homgePageHero}
             backgroundColor={`#007ACC`}
             style={{
-              height: rhythm(14),
+          //    filter: 'grayscale(75%)',
+              height: rhythm(11),
               position: 'relative',
               marginBottom: `${rhythm(1.5)}`,
+              borderBottom:'5px solid #003E1A'
             }}
           >
             <h1
@@ -65,7 +84,7 @@ export default ({ children, location }) => (
                 right: 0,
                 top: rhythm(4),
                 marginTop: '0',
-                height: rhythm(2.5),
+                height: rhythm(2.7),
               }}
             >
               <Link
@@ -73,12 +92,39 @@ export default ({ children, location }) => (
                   boxShadow: 'none',
                   textDecoration: 'none',
                   color: 'inherit',
+                  display: 'inline-flex',
+                  width:'100%'
                 }}
                 to={'/'}
               >
-                {siteTitle}
+                <div 
+                  style={{width:'46%', display:'flex', justifyContent:'end'}}
+                >
+                  <StaticImage 
+                    placeholder="blurred" 
+                    src={'../../static/sportstats partner portal simple-01.png'} 
+                    alt={"sportstats"}
+                    layout="fixed"
+                    height={100}
+                    width={550}
+                  />
+                </div>
+                <span style={{fontSize:'6.2rem',fontWeight:'bolder', width:'8%', color:'black'}}>  // </span>
+                <div style={{ width:'46%', display:'flex', justifyContent:'start'}} >
+                  <GatsbyImage image={image} alt={'partner name'}  style={{marginLeft:'1.5rem'}}/>
+                </div>
+               
               </Link>
             </h1>
+            <div 
+              style={{
+                position:'absolute', bottom:'0', marginLeft:'auto', marginRight:'auto', 
+                backgroundColor:'#003E1A', padding:'0.2rem 1rem', borderRadius:'5px 5px 0 0',
+                left: 0, right: 0, width: '270px', textAlign: 'center', color:'white', fontSize:'1.5rem', marginTop:'1rem'
+              }}
+            > 
+              PARTNER PORTAL
+            </div>
           </BackgroundImage>
         )
       } else {
@@ -108,7 +154,7 @@ export default ({ children, location }) => (
         )
       }
       return (
-        <div>
+        <div style={{fontFamily: 'industry !important'}}>
           {header}
           <div
             style={{
