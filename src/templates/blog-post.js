@@ -56,7 +56,7 @@ class BlogPostTemplate extends React.Component {
         >
           {post.title}
         </h1>
-        <p
+        {/*<p
           style={{
             ...scale(-1 / 5),
             display: 'block',
@@ -65,7 +65,7 @@ class BlogPostTemplate extends React.Component {
           }}
         >
           {post.created}
-        </p>
+        </p> */}
 
         <div
           className="post-content post-hero"

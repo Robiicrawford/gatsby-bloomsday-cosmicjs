@@ -38,7 +38,7 @@ class BlogIndex extends React.Component {
                     >
                       {title} 
                     </h3>
-                    <small style={{color:'black'}}>{node.created}</small>
+                    {/*<small style={{color:'black'}}>{node.created}</small> */}
                     <p 
                       style={{color:'black'}}
                       dangerouslySetInnerHTML={{ __html: node.metadata.description }}
