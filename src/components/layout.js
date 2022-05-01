@@ -54,10 +54,10 @@ export default ({ children, location }) => (
       const image = getImage(data.cosmicjsSettings.metadata.partner_image.local)
 
       let rootPath = `/`
-      let postsPath = `/results`
+      let postsPath = `/posts`
       if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
         rootPath = __PATH_PREFIX__ + `/`
-        postsPath = __PATH_PREFIX__ + `/results`
+        postsPath = __PATH_PREFIX__ + `/posts`
       }
 
       if (location.pathname === rootPath || location.pathname === postsPath) {
