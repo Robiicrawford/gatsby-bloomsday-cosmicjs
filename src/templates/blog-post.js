@@ -117,17 +117,6 @@ export const pageQuery = graphql`
       content
       title
       created(formatString: "MMMM DD, YYYY")
-      metadata {
-        hero {
-          local {
-            childImageSharp {
-              fluid(quality: 90, maxWidth: 1920) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
-          }
-        }
-      }
     }
     cosmicjsSettings(slug: { eq: "general" }) {
       metadata {
